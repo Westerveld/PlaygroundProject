@@ -37,7 +37,8 @@ public class Jump : Physics2DObject
 	private void OnCollisionEnter2D(Collision2D collisionData)
 	{
 		if(checkGround
-			&& collisionData.gameObject.CompareTag(groundTag))
+			&& collisionData.gameObject.CompareTag(groundTag)
+			&& collisionData.contacts[0].normal == Vector2.up)
 		{
 			canJump = true;
 		}
